@@ -40,3 +40,8 @@ WantedBy=multi-user.target" > /lib/systemd/system/tengine.service
 systemctl daemon-reload
 systemctl enable tengine
 systemctl start tengine
+echo -e "\033[32m"Done!"\033[0m"
+echo -e "\033[32m"TengineDir: /usr/local/tengine/"\033[0m"
+echo -e "\033[32m"BinaryFile: /usr/sbin/ohmytengine"\033[0m"
+echo -e "\033[32m"NginxConfDir: /etc/nginx/"\033[0m"
+echo -e "\033[32m"SystemdFile: /lib/systemd/system/tengine.service"\033[0m"
