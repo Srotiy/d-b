@@ -9,7 +9,7 @@ apt install libssl-dev libpcre3-dev zlib1g-dev libgeoip-dev libgd-dev -y
 ./configure --build=$(lsb_release -si) --user=www-data --group=www-data --prefix=/usr/local/tengine --conf-path=/etc/nginx/nginx.conf --sbin-path=/usr/sbin/ohmytengine --with-http_realip_module --with-http_ssl_module --with-http_v2_module --with-http_image_filter_module --with-http_geoip_module --with-http_sub_module --with-http_stub_status_module --with-http_random_index_module
 make && make install
 
-echo '# Stop dance for Tengine
+echo "# Stop dance for Tengine
 # =======================
 #
 # ExecStop sends SIGSTOP (graceful stop) to the Tengine process.
@@ -36,4 +36,7 @@ TimeoutStopSec=4
 KillMode=mixed
 
 [Install]
-WantedBy=multi-user.target' > tengine.service
+WantedBy=multi-user.target" > /lib/systemd/system/tengine.service
+systemctl daemon-reload
+systemctl enable tengine
+systemctl start tengine
